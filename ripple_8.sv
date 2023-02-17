@@ -1,21 +1,8 @@
-module full_adder
+module ripple_8
 (
-	input A, B, cin,
-	output S, cout
-);
-
-	
-	assign S = A ^ B ^ cin;
-	assign cout = (A & B) | (B & cin) | (A & cin);
-
-endmodule
-
-
-module ripple_adder
-(
-	input  [8:0] A, B,
+	input  [7:0] A, B,
 	input         cin,
-	output [8:0] S,
+	output [7:0] S,
 	output        cout
 );
 
@@ -35,8 +22,7 @@ module ripple_adder
 	  full_adder adder4 (.A(A[4]), .B(B[4]), .cin(C[3]), .S(S[4]), .cout(C[4]));
 	  full_adder adder5 (.A(A[5]), .B(B[5]), .cin(C[4]), .S(S[5]), .cout(C[5]));
 	  full_adder adder6 (.A(A[6]), .B(B[6]), .cin(C[5]), .S(S[6]), .cout(C[6]));
-	  full_adder adder7 (.A(A[7]), .B(B[7]), .cin(C[6]), .S(S[7]), .cout(C[7]));
-	  full_adder adder8 (.A(A[8]), .B(B[8]), .cin(C[7]), .S(S[8]), .cout(cout)); // S[8] is actually X
+	  full_adder adder7 (.A(A[7]), .B(B[7]), .cin(C[6]), .S(S[7]), .cout(cout));
 
      
 endmodule
