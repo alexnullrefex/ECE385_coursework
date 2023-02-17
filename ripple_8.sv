@@ -1,9 +1,9 @@
 module ripple_8
 (
-	input  [7:0] A, B,
-	input         cin,
-	output [7:0] S,
-	output        cout
+	input  logic [7:0] A, B,
+	input  logic       cin,
+	output logic [7:0] S,
+	output logic       cout
 );
 
     /* TODO

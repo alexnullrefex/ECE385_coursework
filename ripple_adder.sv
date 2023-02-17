@@ -1,7 +1,7 @@
 module full_adder
 (
-	input A, B, cin,
-	output S, cout
+	input logic A, B, cin,
+	output logic S, cout
 );
 
 	
@@ -13,10 +13,10 @@ endmodule
 
 module ripple_adder
 (
-	input  [8:0] A, B,
-	input         cin,
-	output [8:0] S,
-	output        cout
+	input  logic [8:0] A, B,
+	input  logic       cin,
+	output logic [8:0] S,
+	output logic       cout
 );
 
     /* TODO

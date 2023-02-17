@@ -1,6 +1,6 @@
 module d_flip_flop(
-    input Clk, D_in,
-    output D_out
+    input logic Clk, D_in,
+    output logic D_out
 );
 
     always_ff @ (posedge Clk)

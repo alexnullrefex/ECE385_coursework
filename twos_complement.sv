@@ -1,11 +1,12 @@
 module twos_complement(
-    input [7:0] data_input,
-    input Clk,
-    output [7:0] data_output
+    input logic [7:0] data_input,
+    input logic Clk,
+    output logic [7:0] data_output
 );
 
     logic Load;
     logic [7:0] intermediate_out;
+    logic cout;
 
     assign intermediate_out[0] = ~data_input[0];
     assign intermediate_out[1] = ~data_input[1];
@@ -20,6 +21,6 @@ module twos_complement(
                          .B(8'b00000001),
                           .cin(1'b0),
                            .S(data_output),
-                            .cout(1'b0));
+                            .cout(cout));
 
 endmodule

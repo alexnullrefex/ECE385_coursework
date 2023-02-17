@@ -1,7 +1,7 @@
 module switches(
-    input Clk,
-    input [7:0] switch_in,
-    output [7:0] switch_out
+    input logic Clk,
+    input logic [7:0] switch_in,
+    output logic [7:0] switch_out
 );
 
     always_ff @ (posedge Clk)
