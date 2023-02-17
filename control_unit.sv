@@ -1,6 +1,6 @@
 module control_unit (
-    input logic Reset, Clk, Run, ClearA_LoadB, M
-    output logic Clr_Ld, Shift_En, Add, Sub
+    input logic Reset, Clk, Run, ClearA_LoadB, M,
+    output logic Clr_Ld, Shift_En, Add, Sub, Hold_Status
     
 );
 
@@ -11,7 +11,7 @@ shift1, shift2, shift3, shift4, shift5, shift6, shift7, shift8, subtract} curr_s
 always_ff @ (posedge Clk)  
     begin
         if (Reset)
-            curr_state <= A;
+            curr_state <= hold;
         else 
             curr_state <= next_state;
     end
@@ -151,6 +151,8 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b0;
                 Clr_Ld = ClearA_LoadB;
+                Hold_Status = 1'b1;
+
             end
 
             add1:
@@ -159,6 +161,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add2:
@@ -167,6 +170,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add3:
@@ -175,6 +179,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add4:
@@ -183,6 +188,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add5:
@@ -191,6 +197,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add6:
@@ -199,6 +206,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             add7:
@@ -207,6 +215,7 @@ always_comb
                 Add = 1'b1;
                 Shift_En = 1'b0;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift1:
@@ -215,6 +224,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift2:
@@ -223,6 +233,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift3:
@@ -231,6 +242,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift4:
@@ -239,6 +251,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift5:
@@ -247,6 +260,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift6:
@@ -255,6 +269,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift7:
@@ -263,6 +278,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                Hold_Status = 1'b0;
             end
 
             shift8:
@@ -271,6 +287,7 @@ always_comb
                 Add = 1'b0;
                 Shift_En = 1'b1;
                 Clr_Ld = 1'b0;
+                
             end
 
             subtract:
